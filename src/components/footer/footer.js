@@ -1,12 +1,10 @@
-import { render } from '@testing-library/react';
 import image from '../../images/tmdb-logo.svg'
 
-
-function Footer(props) {
+function Footer() {
     return (
         <footer>
             <div>
-                <p>Create with:</p>
+                <p>Created with:</p>
                 <img
                     src={image}
                     height={'30px'}

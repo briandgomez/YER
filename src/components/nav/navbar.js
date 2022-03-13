@@ -1,32 +1,33 @@
-function NavBar(props) {
-    const tabs = ['Home', 'Movies', 'TV-Shows', 'Discussions']
+import React, {useState} from "react";
+import Movies from '../Movies/Movies';
+import TV from '../TV-Shows/TV';
+
+const Nav = () => {
+    const [currentPage, changePage] = useState('movies');
+
+    const moviesPage = () => {
+        changePage('movies');
+    }
+
+    const tvPage = () => {
+        changePage('tv');
+    }
+
     return (
-        <header>
-            <div className="container">
-                <nav>
-                    <ul>
-                        {tabs.map(currentTab => (
-                            <li key={currentTab} >
-                                <a
-                                    href={currentTab.toLowerCase()}
-                                    onClick={() => props.handlePageChange(currentTab)}
-                                    className={
+        <div className="tabs">
+            <header>
+                <ul className="nav">
+                    <li className={currentPage === 'movies' ? "active" : ""} onClick={moviesPage}>Movies</li>
+                    <li className={currentPage === 'tv' ? "active" : ""} onClick={tvPage}>TV-Shows</li>
+                </ul>
+            </header>
 
-                                        props.currentPage === currentTab ? `nav-link active text-success` : 'nav-link'
-                                    }
-                                >
-                                    {currentTab}
-                                </a>
-                            </li>
-                        ))
-                        }
-                    </ul >
-                </nav>
-
-                <h3 id="title">Y.E.R</h3>
+            <div className="page">
+                {currentPage === 'movies' ? <Movies/> : <TV/>}
             </div>
-        </header>
-    );
+
+        </div>
+    )
 }
 
-export default NavBar;
+export default Nav;
