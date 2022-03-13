@@ -22,14 +22,34 @@ header {
     color:white;
 }
 
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 20%;
+    border-radius: 20px;
+    margin: 15px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.9);
+}
+
+.card img {
+    border-radius: 20px;
+    width: 100%;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
 footer {
-    position: absolute;
+    position: sticky;
     bottom: 0;
     width: 100%;
     height: 0.5rem;  
 }
 
 footer div {
-    background-color: #38686A;
-    padding: 5px;     
+    background-color: #38686A;  
 }
