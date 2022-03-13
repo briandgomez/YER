@@ -1,3 +1,7 @@
+body {
+    background-color: #CDC6AE;
+}
+
 header {
     background-color: #38686A;
     border-bottom-left-radius: 40px;
@@ -22,12 +26,35 @@ header {
     color:white;
 }
 
+input {
+    width: 300px;
+    height: 30px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+#search-btn {
+    height: 30px;
+    border-radius: 20px;
+    margin-left: 10px;
+    border: none;
+    background-color: #2589BD;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+#search-btn:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.9);
+}
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 20%;
     border-radius: 20px;
-    margin: 15px;
+    margin: 13px;
+    background-color: #A3B4A2;
 }
 
 .card:hover {
@@ -52,4 +79,27 @@ footer {
 
 footer div {
     background-color: #38686A;  
+}
+
+/*Responsive Design*/
+@media screen and (max-width: 980px) {
+    .card {
+        width: 46%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .movies div {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .movies div {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+    }
 }
