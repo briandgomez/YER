@@ -48,6 +48,12 @@ input {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.9);
 }
 
+.card-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -55,6 +61,7 @@ input {
     border-radius: 20px;
     margin: 13px;
     background-color: #A3B4A2;
+    width: 330px;
 }
 
 .card:hover {
@@ -83,6 +90,11 @@ footer div {
 
 /*Responsive Design*/
 @media screen and (max-width: 980px) {
+    .card-div {
+        display: flex;
+        justify-content: center;
+    }
+
     .card {
         width: 46%;
     }
