@@ -1,8 +1,25 @@
-import React from "react";
-import pic from '../../TMDB Color Scheme.png';
+import React, { useEffect, useState } from "react";
+
+const API_KEY = 'api_key=' + process.env.REACT_APP_API_KEY;
+const IMG_SIZE = 'https://image.tmdb.org/t/p/original';
+const BASE_URL = "https://api.themoviedb.org/3";
+const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&' + API_KEY;
 
 const Movies = () => {
-    const moviesList = ['Brad', 'Angelina', 'Kyle!?'];
+    // Movies - current movie object from 'results'
+    // setMovies - changes the current movie object
+    const [movies, setMovies] = useState([])
+
+    //Arrow function indicates that everything inside {} will execute EVERTYIME the app renders
+    useEffect(() => {
+        fetch(API_URL)
+        .then((res) => res.json())
+        .then((data) => {
+            setMovies(data.results)
+        })
+        //Empty array will call useEffect and fetch API only 1 time(when initially rendered)
+        //Adding parameters inside the array will cause the useEffect function to run whenever there is a change to the parameter
+    },[])
 
     return (
         <div className="movies">
@@ -12,16 +29,14 @@ const Movies = () => {
                 <input type={"text"} placeholder="Search..." name="Search input"></input>
                 <button id="search-btn" type="Submit"><i class="fa fa-search">Go</i></button>
             </form>
-            <div className = "card-layout">
-                {moviesList.map(item => (
+            <div className="card-layout">
+                {movies.map(item => (
                     <div className="card-div">
                         <div className="card">
-                            <img src={pic} />
-                            <p key={item}
-                            >{item}</p>
+                            <img src={IMG_SIZE + item.poster_path} />
+                            <p>{item.overview}</p>
                             <div className="container">
-                                <h4><b>John Doe</b></h4>
-                                <p>Architect & Engineer</p>
+                                <p>{item.title}</p>
                             </div>
                         </div>
                     </div>
