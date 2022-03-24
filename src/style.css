@@ -89,6 +89,10 @@ footer {
     justify-content: center;
 }
 
+.directional p {
+    margin: 5px 15px;
+}
+
 .arrow {
     border: solid black;
     border-width: 0 3px 3px 0;
@@ -120,6 +124,10 @@ footer div {
     .card {
         width: 46%;
     }
+
+    .directional p {
+        margin: 5px 15px;
+    }    
 }
 
 @media screen and (max-width: 768px) {
@@ -128,6 +136,10 @@ footer div {
         flex-direction: column;
         width: auto;
     }
+
+    .directional {
+        flex-direction: row;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -135,5 +147,9 @@ footer div {
         display: flex;
         flex-direction: column;
         width: auto;
+    }
+
+    .directional {
+        flex-direction: row;
     }
 }
