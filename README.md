@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Y.E.R (Your Entertainment Reviews)
+
+## About
+Discuss different projects (i.e. movies, tv-shows, etc.) with others with the given information
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
