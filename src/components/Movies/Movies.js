@@ -7,6 +7,8 @@ const Movies = () => {
     //Defaults 'currentPage' to 1
     const [currentPage, setPage] = useState(1);
 
+    const [title, setTitle] = useState('');
+
     //Increment and decrement page by 1
     const incrementByOne = () => {
         setPage(currentPage + 1);
@@ -25,19 +27,33 @@ const Movies = () => {
         fetch(API_URL)
             .then((res) => res.json())
             .then((data) => {
-                //console.log(data.results)
                 setMovies(data.results)
             })
         //Empty array will call useEffect and fetch API only 1 time(when initially rendered)
         //Adding 'curretPage' inside the array causes the useEffect function to run whenever there is a change to the parameter
     }, [currentPage])
 
+    //Search for the movie with 'title'
+    const movieSubmit = (e) => {
+        e.preventDefault();
+
+        fetch(BASE_URL + '/search/movie?' + API_KEY + '&query=' + title)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data.results)
+                setMovies(data.results)
+            })
+    };
+
     return (
         <div className="movies">
             <h1>Movies</h1>
-
-            <form>
-                <input type={"text"} placeholder="Search..." name="Search input"></input>
+            {/* Calls 'movieSubmit' */}
+            <form onSubmit={movieSubmit}>
+                <input type={"text"} placeholder="Search..." name="Search input"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                ></input>
                 <button id="search-btn" type="Submit"><i class="fa fa-search">Go</i></button>
             </form>
 

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const TV = () => {
     const [tv, setTv] = useState([]);
     const [currentPage, setPage] = useState(1);
+    const [title, setTitle] = useState('');
 
     const incrementByOne = () => {
         setPage(currentPage + 1);
@@ -24,12 +25,25 @@ const TV = () => {
             })
     }, [currentPage])
 
+    const movieSubmit = (e) => {
+        e.preventDefault();
+
+        fetch(BASE_URL + '/search/tv?' + API_KEY + '&query=' + title + `&language=en-US&page=${currentPage}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setTv(data.results)
+            })
+    };
+
     return (
         <div className="movies">
             <h1>TV-Shows</h1>
 
-            <form>
-                <input type={"text"} placeholder="Search..." name="Search input"></input>
+            <form onSubmit={movieSubmit}>
+                <input type={"text"} placeholder="Search..." name="Search input"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                ></input>
                 <button id="search-btn" type="Submit"><i class="fa fa-search">Go</i></button>
             </form>
 
