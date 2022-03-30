@@ -73,8 +73,13 @@ input {
     width: 100%;
 }
 
+.card p {
+    padding: 0px 18px 10px;
+}
+
 .container {
-    padding: 2px 16px;
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 footer {
@@ -121,10 +126,6 @@ footer div {
         justify-content: center;
     }
 
-    .card {
-        width: 46%;
-    }
-
     .directional p {
         margin: 5px 15px;
     }    
@@ -133,8 +134,7 @@ footer div {
 @media screen and (max-width: 768px) {
     .movies div {
         display: flex;
-        flex-direction: column;
-        width: auto;
+        flex-wrap: wrap;
     }
 
     .directional {

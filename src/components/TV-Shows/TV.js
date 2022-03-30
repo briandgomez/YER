@@ -63,11 +63,11 @@ const TV = () => {
 
             <div className='directional'>
                 <button onClick={decrementByOne}>
-                    <i class="arrow left"></i>
+                    <i className="arrow left"></i>
                 </button>
                 <p>{currentPage}</p>
                 <button onClick={incrementByOne}>
-                    <i class="arrow right"></i>
+                    <i className="arrow right"></i>
                 </button>
             </div>
         </div>
