@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/YER/static/css/main.709e1e86.css",
+    "main.js": "/YER/static/js/main.d0b0a217.js",
+    "static/js/787.600937bf.chunk.js": "/YER/static/js/787.600937bf.chunk.js",
+    "static/media/tmdb-logo.svg": "/YER/static/media/tmdb-logo.da3f379f983731ab314ab178dd627943.svg",
+    "index.html": "/YER/index.html",
+    "main.709e1e86.css.map": "/YER/static/css/main.709e1e86.css.map",
+    "main.d0b0a217.js.map": "/YER/static/js/main.d0b0a217.js.map",
+    "787.600937bf.chunk.js.map": "/YER/static/js/787.600937bf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.709e1e86.css",
+    "static/js/main.d0b0a217.js"
+  ]
+}
