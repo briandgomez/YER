@@ -5,11 +5,8 @@ const TV = () => {
     const [currentPage, setPage] = useState(1);
     const [title, setTitle] = useState('');
 
-    const incrementByOne = () => {
-        setPage(currentPage + 1);
-    }
-    const decrementByOne = () => {
-        setPage(currentPage - 1);
+    function handleIncrement(event){
+        event === 'left-button' ? setPage(currentPage - 1) : setPage(currentPage + 1);
     }
 
     const API_KEY = 'api_key=' + process.env.REACT_APP_API_KEY;
@@ -27,7 +24,6 @@ const TV = () => {
 
     const movieSubmit = (e) => {
         e.preventDefault();
-
         fetch(BASE_URL + '/search/tv?' + API_KEY + '&query=' + title + `&language=en-US&page=${currentPage}`)
             .then((res) => res.json())
             .then((data) => {
@@ -44,7 +40,7 @@ const TV = () => {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 ></input>
-                <button id="search-btn" type="Submit"><i class="fa fa-search">Go</i></button>
+                <button id="search-btn" type="Submit"><i className="fa fa-search">Go</i></button>
             </form>
 
             <div className="card-layout">
@@ -62,11 +58,11 @@ const TV = () => {
             </div>
 
             <div className='directional'>
-                <button onClick={decrementByOne}>
+                <button onClick={() => handleIncrement('left-button')}>
                     <i className="arrow left"></i>
                 </button>
                 <p>{currentPage}</p>
-                <button onClick={incrementByOne}>
+                <button onClick={() => handleIncrement('right-button')}>
                     <i className="arrow right"></i>
                 </button>
             </div>

@@ -82,6 +82,11 @@ input {
     font-weight: bold;
 }
 
+.rating {
+    font-weight: bold;
+    padding: 0px 0px;
+}
+
 footer {
     position: sticky;
     bottom: 0;

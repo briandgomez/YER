@@ -1,20 +1,12 @@
 import React, { useEffect, useState } from "react";
 
 const Movies = () => {
-    // Movies - current movie object from 'results'
-    // setMovies - changes the current movie object
     const [movies, setMovies] = useState([]);
-    //Defaults 'currentPage' to 1
     const [currentPage, setPage] = useState(1);
-
     const [title, setTitle] = useState('');
 
-    //Increment and decrement page by 1
-    const incrementByOne = () => {
-        setPage(currentPage + 1);
-    }
-    const decrementByOne = () => {
-        setPage(currentPage - 1);
+    function handleIncrement(event){
+        event === 'left-button' ? setPage(currentPage - 1) : setPage(currentPage + 1);
     }
 
     const API_KEY = 'api_key=' + process.env.REACT_APP_API_KEY;
@@ -22,21 +14,16 @@ const Movies = () => {
     const BASE_URL = "https://api.themoviedb.org/3";
     const API_URL = BASE_URL + '/movie/popular?' + API_KEY + `&language=en-US&page=${currentPage}`;
 
-    //Arrow function indicates that everything inside {} will execute EVERTYIME the app renders
     useEffect(() => {
         fetch(API_URL)
             .then((res) => res.json())
             .then((data) => {
                 setMovies(data.results)
             })
-        //Empty array will call useEffect and fetch API only 1 time(when initially rendered)
-        //Adding 'curretPage' inside the array causes the useEffect function to run whenever there is a change to the parameter
     }, [currentPage])
 
-    //Search for the movie with 'title'
     const movieSubmit = (e) => {
         e.preventDefault();
-
         fetch(BASE_URL + '/search/movie?' + API_KEY + '&query=' + title)
             .then((res) => res.json())
             .then((data) => {
@@ -47,13 +34,12 @@ const Movies = () => {
     return (
         <div className="movies">
             <h1>Movies</h1>
-            {/* Calls 'movieSubmit' */}
             <form onSubmit={movieSubmit}>
                 <input type={"text"} placeholder="Search..." name="Search input"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 ></input>
-                <button id="search-btn" type="Submit"><i class="fa fa-search">Go</i></button>
+                <button id="search-btn" type="Submit"><i className="fa fa-search">Go</i></button>
             </form>
 
             <div className="card-layout">
@@ -71,11 +57,11 @@ const Movies = () => {
             </div>
 
             <div className='directional'>
-                <button onClick={decrementByOne}>
+                <button onClick={() => handleIncrement('left-button')}>
                     <i className="arrow left"></i>
                 </button>
                 <p>{currentPage}</p>
-                <button onClick={incrementByOne}>
+                <button onClick={() => handleIncrement('right-button')}>
                     <i className="arrow right"></i>
                 </button>
             </div>
