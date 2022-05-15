@@ -13,3 +13,6 @@ To start the application type the following command in the main directory: `npm 
 I plan on adding the following to the application:
 1. A 'Discussion' tab where users can discuss about their favorite project
 2. When a 'card' is clicked on a new page will open displaying more information such as ratings, casts, and trailers for the particular project 
+
+## Deployed Application
+https://briandgomez.github.io/YER/
