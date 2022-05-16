@@ -5,20 +5,16 @@ import TV from '../TV-Shows/TV';
 const Nav = () => {
     const [currentPage, changePage] = useState('movies');
 
-    const moviesPage = () => {
-        changePage('movies');
-    }
-
-    const tvPage = () => {
-        changePage('tv');
+    const changeCurrentPage = (event) => {
+        event === 'movies' ? changePage('movies') : changePage('tv');
     }
 
     return (
         <div className="tabs">
             <header>
                 <ul className="nav">
-                    <li className={currentPage === 'movies' ? "active" : ""} onClick={moviesPage}>Movies</li>
-                    <li className={currentPage === 'tv' ? "active" : ""} onClick={tvPage}>TV-Shows</li>
+                    <li className={currentPage === 'movies' ? "active" : ""} onClick={() => changeCurrentPage('movies')}>Movies</li>
+                    <li className={currentPage === 'tv' ? "active" : ""} onClick={() => changeCurrentPage('tv')}>TV-Shows</li>
                 </ul>
             </header>
 
